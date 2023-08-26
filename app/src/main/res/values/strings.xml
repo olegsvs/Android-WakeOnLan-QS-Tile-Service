@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Wol Settings</string>
+    <string name="send_packet">Send packet</string>
+</resources>
