@@ -17,20 +17,17 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.WolSettings">
+            android:theme="@style/Theme.WolSettings"
+            android:noHistory="true"
+            android:excludeFromRecents="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
             </intent-filter>
         </activity>
 
-        <meta-data android:name="android.service.quicksettings.ACTIVE_TILE"
-            android:value="true" />
-
         <service
-            android:exported="true"
             android:name=".WoLQSTileService"
+            android:exported="true"
             android:icon="@drawable/baseline_wifi_protected_setup_24"
             android:label="@string/send_packet"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">

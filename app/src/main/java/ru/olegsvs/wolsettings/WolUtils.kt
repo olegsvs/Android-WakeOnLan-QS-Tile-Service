@@ -1,5 +1,6 @@
 package ru.olegsvs.wolsettings
 
+import android.os.StrictMode
 import android.util.Log
 import java.net.DatagramPacket
 import java.net.DatagramSocket
@@ -25,6 +26,8 @@ class WolUtils {
                     }
                     val address: InetAddress = InetAddress.getByName(ip)
                     val packet = DatagramPacket(bytes, bytes.size, address, 9)
+                    val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+                    StrictMode.setThreadPolicy(policy)
                     socket.send(packet)
                     Log.i("WoL", "Wake-on-LAN packet sent.")
                 } catch (e: Exception) {
